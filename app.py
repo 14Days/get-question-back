@@ -1,12 +1,10 @@
 from flask import Flask
-
-app = Flask(__name__)
-
-
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+from controllers import register_routers
 
 
-if __name__ == '__main__':
-    app.run()
+def new_flask_app():
+    app = Flask(__name__)
+
+    register_routers(app)
+
+    return app
