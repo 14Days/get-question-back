@@ -1,6 +1,6 @@
 from flask import Flask
-from controllers.hello import hello_blueprint
+from controllers.login_out import login_out_page
 
 
 def register_routers(app: Flask):
-    app.register_blueprint(hello_blueprint, url_prefix='/hello')
+    app.register_blueprint(login_out_page)

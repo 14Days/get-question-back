@@ -13,5 +13,6 @@ class User(db.Model):
     def __str__(self):
         return "User(username={})".format(self.username)
 
-    def get_all(self):
-        return self.query.all()
+    @classmethod
+    def check_password(cls, username: str):
+        return cls.query.filter_by(username=username).first()
