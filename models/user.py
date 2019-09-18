@@ -1,4 +1,5 @@
 from models import db
+from models import session_commit
 
 
 class User(db.Model):
@@ -16,3 +17,9 @@ class User(db.Model):
     @classmethod
     def check_password(cls, username: str):
         return cls.query.filter_by(username=username).first()
+
+    @classmethod
+    def change_password(cls, username: str, password: str):
+        user = cls.query.filter_by(username=username).first()
+        user.password = password
+        return session_commit()
