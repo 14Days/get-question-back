@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, session
 from models.user import User
 import utils.return_warp as warp
 
@@ -16,6 +16,15 @@ def login():
     user = User.check_password(username=username)
 
     if user.password == password:
+        session.clear()
+        session['user'] = username
         return warp.success_warp('login success')
     else:
         return warp.fail_warp('user error')
+
+
+@login_out_page.route('/out', methods=['GET'])
+def logout():
+    session.clear()
+
+    return warp.success_warp('logout success')
