@@ -14,5 +14,4 @@ def session_commit():
         db.session.commit()
     except SQLAlchemyError as e:
         db.session.rollback()
-        reason = str(e)
-        return reason
+        raise e

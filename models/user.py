@@ -23,3 +23,7 @@ class User(db.Model):
         user = cls.query.filter_by(username=username).first()
         user.password = password
         return session_commit()
+
+    def new_user(self):
+        db.session.add(self)
+        return session_commit()
