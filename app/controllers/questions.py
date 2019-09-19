@@ -25,10 +25,7 @@ def random_questions():
     for question in questions_temp:
         questions_res.append({
             'question': question.question,
-            'answer1': question.answer1,
-            'answer2': question.answer2,
-            'answer3': question.answer3,
-            'answer4': question.answer4,
+            'answer': [question.answer1, question.answer2, question.answer3, question.answer4],
             'correct': question.correct
         })
 
