@@ -1,5 +1,5 @@
 from sqlalchemy.sql.functions import random
-from models import db
+from app.models import db
 
 
 class Questions(db.Model):

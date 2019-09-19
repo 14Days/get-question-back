@@ -1,7 +1,7 @@
 from flask import Blueprint, request, session
 from sqlalchemy.exc import SQLAlchemyError
-from models.user import User
-import utils.return_warp as warp
+from app.models.user import User
+import app.utils.return_warp as warp
 
 registered_page = Blueprint('registered', __name__, url_prefix='/registered')
 

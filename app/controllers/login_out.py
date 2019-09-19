@@ -1,6 +1,6 @@
 from flask import Blueprint, request, session
-from models.user import User
-import utils.return_warp as warp
+from app.models.user import User
+import app.utils.return_warp as warp
 
 login_out_page = Blueprint('login_out', __name__, url_prefix='/log')
 

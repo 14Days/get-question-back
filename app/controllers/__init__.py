@@ -1,8 +1,8 @@
 from flask import Flask
-from controllers.login_out import login_out_page
-from controllers.secret import secret_page
-from controllers.registered import registered_page
-from controllers.questions import questions_page
+from app.controllers.login_out import login_out_page
+from app.controllers.secret import secret_page
+from app.controllers.registered import registered_page
+from app.controllers.questions import questions_page
 
 
 def register_routers(app: Flask):

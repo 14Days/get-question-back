@@ -1,6 +1,6 @@
 from flask import Blueprint, session, request
-from models.questions import Questions
-import utils.return_warp as warp
+from app.models.questions import Questions
+import app.utils.return_warp as warp
 
 questions_page = Blueprint('questions', __name__, url_prefix='/questions')
 

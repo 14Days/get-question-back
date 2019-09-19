@@ -1,7 +1,7 @@
 from flask import Flask
-from config import FlaskConfig
-from controllers import register_routers
-from models import connect_db
+from app.config import FlaskConfig
+from app.controllers import register_routers
+from app.models import connect_db
 
 
 def new_flask_app() -> Flask:

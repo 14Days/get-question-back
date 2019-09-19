@@ -1,5 +1,5 @@
-from models import db
-from models import session_commit
+from app.models import db
+from app.models import session_commit
 
 
 class User(db.Model):

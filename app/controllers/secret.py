@@ -1,6 +1,6 @@
 from flask import Blueprint, session, request
-from models.user import User
-import utils.return_warp as warp
+from app.models.user import User
+import app.utils.return_warp as warp
 
 secret_page = Blueprint('secret', __name__, url_prefix='/secret')
 
