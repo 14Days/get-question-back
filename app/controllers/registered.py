@@ -10,7 +10,10 @@ registered_page = Blueprint('registered', __name__, url_prefix='/registered')
 def send_code():
     phone = request.args.get('phone')
     if phone is None:
-        return warp.fail_warp('params')
+        return warp.fail_warp('params error')
+    user = User.check_password(phone)
+    if user is not None:
+        return warp.fail_warp('user exist')
 
     session['phone'] = phone
     session['code'] = 123456
