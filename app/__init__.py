@@ -7,7 +7,7 @@ from app.models import connect_db
 
 def new_flask_app() -> Flask:
     app = Flask(__name__)
-    CORS(app)
+    CORS(app, supports_credentials=True)
 
     # 添加配置文件
     app.config.from_object(FlaskConfig)
