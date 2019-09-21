@@ -47,7 +47,7 @@ def set_password():
     phone = session.get('phone')
     password = request.args.get('password')
 
-    if confirm:
+    if confirm is not True:
         return warp.fail_warp('no code')
 
     if password is None:
