@@ -28,7 +28,7 @@ def send_code():
 
 @registered_page.route('/confirmCode', methods=['GET'])
 def confirm_code():
-    code = int(request.args.get('code'))
+    code = request.args.get('code')
     session_code = session.get('code')
 
     if session_code is None:
