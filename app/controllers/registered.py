@@ -2,6 +2,7 @@ from flask import Blueprint, request, session
 from sqlalchemy.exc import SQLAlchemyError
 from app.models.user import User
 import app.utils.return_warp as warp
+from app.utils.fetchCode import create_code, fetch_code
 
 registered_page = Blueprint('registered', __name__, url_prefix='/registered')
 
@@ -15,10 +16,14 @@ def send_code():
     if user is not None:
         return warp.fail_warp('user exist')
 
-    session['phone'] = phone
-    session['code'] = 123456
-
-    return warp.success_warp('code has sent')
+    code = create_code()
+    result = fetch_code(phone=phone, code=code)
+    if result:
+        session['phone'] = phone
+        session['code'] = code
+        return warp.success_warp('code has sent')
+    else:
+        return warp.fail_warp('code send fail')
 
 
 @registered_page.route('/confirmCode', methods=['GET'])
